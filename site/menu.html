@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Menu — Tacos Jalisco, Vallejo CA</title>
+<meta name="description" content="The full Tacos Jalisco menu — quesabirria, tacos, burritos, platos, mariscos, breakfast and more. Order online for pickup or delivery in Vallejo, CA.">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://tacosjaliscovallejo.com/menu.html">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png?v=4">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Menu — Tacos Jalisco, Vallejo CA">
+<meta property="og:description" content="Quesabirria, tacos, burritos, platos, mariscos, breakfast and more. Order online — no third-party markup.">
+<meta property="og:url" content="https://tacosjaliscovallejo.com/menu.html">
+<meta property="og:image" content="assets/birria-tacos.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="accessibility.css">
+
+<style>
+:root{
+  --ember:#db594b;
+  --ember-dk:#c04434;
+  --gold:#e9a83a;
+  --cream:#f7f0e4;
+  --cream-2:#efe3cf;
+  --ink:#1d1410;
+  --char:#261b14;
+  --line:rgba(29,20,16,.14);
+  --line-inv:rgba(247,240,228,.16);
+  --disp:'Anton',Impact,sans-serif;
+  --cond:'Barlow Condensed',Arial Narrow,sans-serif;
+  --body:'Manrope',system-ui,sans-serif;
+  --nav-h:76px;
+  --chips-h:62px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--nav-h) + var(--chips-h) + 12px)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{
+  font-family:var(--body);font-weight:500;background:var(--cream);color:var(--ink);
+  line-height:1.55;font-size:17px;overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
+::selection{background:var(--ember);color:var(--cream)}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:54px;padding:0 28px;border-radius:999px;
+  font-family:var(--cond);font-weight:700;text-transform:uppercase;
+  letter-spacing:.14em;font-size:16px;line-height:1;
+  transition:transform .18s ease,background .18s ease;
+  -webkit-tap-highlight-color:transparent;user-select:none;
+}
+.btn:active{transform:scale(.97)}
+.btn--solid{background:var(--ember);color:#fff;box-shadow:0 8px 24px rgba(219,89,75,.35)}
+.btn--solid:hover{background:var(--ember-dk)}
+.btn--ghost{border:2px solid currentColor;background:transparent}
+.btn--sm{min-height:46px;padding:0 20px;font-size:14px}
+
+/* ── top bar ── */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:60;height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:0 16px;background:#fff;color:var(--ink);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 4px 24px rgba(29,20,16,.1);
+}
+.nav__back{
+  display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 6px;
+  font-family:var(--cond);font-weight:600;font-size:16px;letter-spacing:.1em;text-transform:uppercase;
+}
+.nav__back svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.nav__logo img{height:64px;width:auto;object-fit:contain}
+@media (min-width:900px){
+  :root{--nav-h:88px}
+  .nav{padding:0 32px}
+  .nav__logo img{height:76px}
+}
+
+/* ── page head ── */
+.mhero{
+  background:var(--ink);color:var(--cream);
+  padding:calc(var(--nav-h) + 40px) 20px 30px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.mhero::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(120% 90% at 50% -20%,rgba(219,89,75,.35),transparent 60%);
+  pointer-events:none;
+}
+.mhero>*{position:relative;z-index:1}
+.mhero .eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--cond);font-weight:700;text-transform:uppercase;
+  letter-spacing:.24em;font-size:13px;color:var(--gold);
+}
+.mhero .eyebrow i{width:26px;height:3px;background:var(--gold);border-radius:2px}
+.mhero h1{
+  font-family:var(--disp);font-weight:400;text-transform:uppercase;
+  font-size:clamp(34px,8.5vw,64px);line-height:.96;margin:12px 0 10px;
+}
+.mhero h1 em{font-style:normal;color:var(--ember)}
+.mhero p{font-weight:600;font-size:15.5px;opacity:.8;max-width:44ch;margin:0 auto}
+@media (min-width:900px){.mhero{padding-top:calc(var(--nav-h) + 64px);padding-bottom:44px}}
+
+/* ── sticky category chips ── */
+.chips-wrap{
+  position:sticky;top:var(--nav-h);z-index:55;
+  background:rgba(29,20,16,.96);backdrop-filter:blur(12px);
+  border-bottom:3px solid var(--ember);
+}
+.chips{
+  display:flex;gap:8px;overflow-x:auto;padding:10px 16px;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  max-width:1180px;margin:0 auto;
+}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  flex:0 0 auto;min-height:42px;padding:0 18px;border-radius:999px;
+  display:inline-flex;align-items:center;
+  font-family:var(--cond);font-weight:600;font-size:16px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--cream);background:rgba(247,240,228,.1);border:1px solid var(--line-inv);
+  white-space:nowrap;transition:background .18s,color .18s;
+  -webkit-tap-highlight-color:transparent;
+}
+.chip.is-on{background:var(--ember);border-color:var(--ember);color:#fff;font-weight:700}
+
+/* ── menu sections ── */
+.wrap{max-width:900px;margin:0 auto;padding:8px 20px calc(120px + env(safe-area-inset-bottom))}
+.msec{padding-top:44px}
+.msec__head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.msec__head h2{
+  font-family:var(--disp);font-weight:400;text-transform:uppercase;
+  font-size:clamp(25px,6vw,40px);line-height:1;color:var(--ink);
+}
+.msec__head::after{content:'';flex:1;height:3px;background:var(--ember);border-radius:2px;transform:translateY(-8px)}
+.msec__note{font-family:var(--cond);font-weight:600;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--ember);margin-bottom:14px}
+
+.dish{
+  display:grid;grid-template-columns:1fr auto;gap:2px 16px;
+  padding:16px 0;border-bottom:1px dashed var(--line);
+}
+.dish h4{
+  font-family:var(--cond);font-weight:700;font-size:22px;line-height:1.15;
+  letter-spacing:.02em;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+}
+.dish__pop{
+  font-family:var(--cond);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  background:var(--ink);color:var(--gold);border-radius:999px;padding:3px 10px;
+}
+.dish__pop--sig{background:var(--ember);color:#fff}
+.dish__price{
+  font-family:var(--disp);font-weight:400;font-size:21px;color:var(--ember);
+  white-space:nowrap;align-self:start;
+}
+.dish p{grid-column:1/-1;font-size:15.5px;font-weight:500;opacity:.75;line-height:1.55;max-width:60ch}
+
+/* signature highlight card */
+.dish--hero{
+  grid-template-columns:1fr;background:var(--ink);color:var(--cream);
+  border-radius:18px;border-bottom:0;padding:0;overflow:hidden;margin:6px 0 10px;
+}
+.dish--hero img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.dish--hero .dish__in{padding:18px 20px 22px;display:grid;grid-template-columns:1fr auto;gap:2px 16px}
+.dish--hero h4{font-size:24px}
+.dish--hero .dish__price{color:var(--gold);font-size:24px}
+.dish--hero p{opacity:.85}
+
+/* ── bottom CTA band ── */
+.mcta{
+  background:var(--ember);color:#fff;text-align:center;
+  padding:52px 20px 56px;margin-top:56px;border-radius:22px;
+}
+.mcta h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(25px,6vw,38px);line-height:1;margin-bottom:10px}
+.mcta p{font-family:var(--cond);font-weight:600;font-size:17px;letter-spacing:.06em;text-transform:uppercase;opacity:.9;margin-bottom:22px}
+.mcta .btn{background:var(--ink);color:var(--cream);width:100%;max-width:380px}
+
+/* ── footer ── */
+.foot{
+  background:var(--char);color:var(--cream);text-align:center;
+  padding:44px 20px calc(120px + env(safe-area-inset-bottom));
+  font-size:13.5px;
+}
+.foot__logo{height:68px;width:auto;margin:0 auto 14px;object-fit:contain}
+.foot p{opacity:.75;font-weight:500;margin-bottom:18px}
+.foot__links{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;margin-bottom:22px;font-family:var(--cond);font-weight:600;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
+.foot__links a{opacity:.8}
+.foot__links a:hover{opacity:1;color:var(--gold)}
+.powered-by{display:inline-flex;align-items:center;gap:8px;opacity:.7}
+.powered-by img{height:16px;width:auto}
+@media (min-width:900px){.foot{padding-bottom:56px}}
+
+/* ── sticky order bar ── */
+.orderbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  display:grid;grid-template-columns:1fr 1.7fr;gap:10px;
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:rgba(29,20,16,.94);backdrop-filter:blur(14px);
+  border-top:1px solid var(--line-inv);
+}
+.orderbar .btn--ghost{color:var(--cream)}
+@media (min-width:900px){
+  .orderbar{left:auto;right:32px;bottom:24px;border:0;background:none;backdrop-filter:none;padding:0;grid-template-columns:auto;box-shadow:none}
+  .orderbar .btn--ghost{display:none}
+}
+
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<!-- ══════════ TOP BAR ══════════ -->
+<header class="nav">
+  <a class="nav__back" href="./" aria-label="Back to home">
+    <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg> Home
+  </a>
+  <a class="nav__logo" href="./" aria-label="Tacos Jalisco — home">
+    <img src="assets/logo.png?v=4" alt="Tacos Jalisco">
+  </a>
+  <a class="btn btn--solid btn--sm" href="https://order.boons.io/site/tacos-jalisco/244/y" target="_blank" rel="noopener noreferrer"><span>Order</span></a>
+</header>
+
+<!-- ══════════ PAGE HEAD ══════════ -->
+<section class="mhero">
+  <div class="eyebrow"><i></i> Tacos Jalisco · Vallejo CA</div>
+  <h1>The Full <em>Menu</em></h1>
+</section>
+
+<!-- ══════════ STICKY CATEGORY NAV ══════════ -->
+<div class="chips-wrap">
+  <nav class="chips" id="chips" aria-label="Menu categories">
+    <a class="chip is-on" href="#popular">Most ordered</a>
+    <a class="chip" href="#quesabirrias">Quesabirria</a>
+    <a class="chip" href="#antojitos">Antojitos</a>
+    <a class="chip" href="#tacos">Tacos</a>
+    <a class="chip" href="#burritos">Burritos</a>
+    <a class="chip" href="#quesadillas">Quesadillas</a>
+    <a class="chip" href="#platos">Platos</a>
+    <a class="chip" href="#mariscos">Mariscos</a>
+    <a class="chip" href="#vegetarian">Vegetarian</a>
+    <a class="chip" href="#combos">Combos</a>
+    <a class="chip" href="#breakfast">Breakfast</a>
+    <a class="chip" href="#sides">Sides</a>
+    <a class="chip" href="#salsa">Salsa</a>
+    <a class="chip" href="#drinks">Drinks</a>
+  </nav>
+</div>
+
+<main class="wrap">
+
+  <!-- MOST ORDERED -->
+  <section class="msec" id="popular">
+    <div class="msec__head"><h2>Most Ordered</h2></div>
+    <p class="msec__note">The plates Vallejo asks for again and again</p>
+    <div class="dish"><h4>Regular Burrito <span class="dish__pop">Popular</span></h4><span class="dish__price">$12.72+</span><p>Your choice of meat with rice, pinto beans, onions and cilantro.</p></div>
+    <div class="dish"><h4>Famous Jalisco Burrito <span class="dish__pop">Popular</span></h4><span class="dish__price">$16.99+</span><p>Wet. Meat, rice, whole pinto beans, onions, cilantro, cheese and sour cream, finished with enchilada sauce and melted cheese.</p></div>
+    <div class="dish"><h4>Meat Quesadillas</h4><span class="dish__price">$12.95+</span><p>Lettuce, onions, cilantro and tomatoes.</p></div>
+    <div class="dish"><h4>Jalisco Nachos</h4><span class="dish__price">$13.88+</span><p>Crispy chips under melted cheese, refried beans, tomato, green onion, jalapeño and sour cream, with your choice of meat.</p></div>
+    <div class="dish"><h4>Taco Salad</h4><span class="dish__price">$16.61+</span><p>Lettuce, tomato and onion with rice, beans, your choice of meat, guacamole and sour cream in a crisp taco shell bowl.</p></div>
+    <div class="dish"><h4>Bean &amp; Cheese Burrito</h4><span class="dish__price">$6.99</span><p>Cheese and refried beans in a flour tortilla.</p></div>
+    <div class="dish"><h4>Chimichanga Combo</h4><span class="dish__price">$18.73+</span><p>Deep-fried burrito with rice, pinto beans, onion, cilantro and cheese, plus sour cream and guacamole on the side.</p></div>
+    <div class="dish"><h4>Taco Combo</h4><span class="dish__price">$11.30+</span><p>Two soft corn tortillas with your choice of meat, with rice and refried beans.</p></div>
+  </section>
+
+  <!-- QUESABIRRIAS -->
+  <section class="msec" id="quesabirrias">
+    <div class="msec__head"><h2>Quesabirria</h2></div>
+    <p class="msec__note">The one we're known for</p>
+    <div class="dish dish--hero">
+      <img src="assets/birria-tacos.png" alt="Four birria tacos with a side of consommé, onions and lime" loading="lazy">
+      <div class="dish__in">
+        <h4>Quesabirria <span class="dish__pop dish__pop--sig">Signature</span></h4><span class="dish__price">$6.25+</span>
+        <p>Slow-braised birria in a crisped, cheesy tortilla, grilled golden. Served with consomé, cilantro, onion and lime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANTOJITOS -->
+  <section class="msec" id="antojitos">
+    <div class="msec__head"><h2>Antojitos</h2></div>
+    <div class="dish"><h4>Torta</h4><span class="dish__price">$11.19</span><p>A soft French roll filled with your choice of meat, lettuce, tomato, onion, mayonnaise and ripe avocado.</p></div>
+    <div class="dish"><h4>Tostada De Carne</h4><span class="dish__price">$7.60</span><p>Crisp corn tortilla layered with refried beans and meat, then cheese, onion, tomato, lettuce, sour cream and avocado.</p></div>
+    <div class="dish"><h4>Jalisco Nachos <span class="dish__pop">Popular</span></h4><span class="dish__price">$13.88+</span><p>A mountain of chips with melted cheese, refried beans, tomato, green onion, jalapeño, sour cream and your choice of meat.</p></div>
+    <div class="dish"><h4>Kids Nachos</h4><span class="dish__price">$6.89+</span><p>Corn chips with refried beans and a choice of nacho cheese or jack cheese.</p></div>
+    <div class="dish"><h4>Steak Fries</h4><span class="dish__price">$16.09+</span><p>Golden fries piled with your choice of meat, onion, tomato, sour cream and either nacho or melted jack cheese.</p></div>
+    <div class="dish"><h4>Jalisco Flautas</h4><span class="dish__price">$11.41</span><p>Three crisp chicken taquitos with flauta sauce and parmesan, on lettuce with sour cream and guacamole.</p></div>
+    <div class="dish"><h4>2 Enchiladas</h4><span class="dish__price">$9.87</span><p>Rolled corn tortillas filled with meat or cheese, under enchilada sauce, sour cream and lettuce.</p></div>
+  </section>
+
+  <!-- TACOS -->
+  <section class="msec" id="tacos">
+    <div class="msec__head"><h2>Tacos</h2></div>
+    <div class="dish"><h4>Tacos Regular</h4><span class="dish__price">$3.99+</span><p>Marinated steak, carnitas, al pastor or chicken on a soft corn tortilla with onion and cilantro.</p></div>
+    <div class="dish"><h4>Taco Supreme</h4><span class="dish__price">$4.39+</span><p>Your choice of meat with onion, cilantro, shredded cheese and sour cream.</p></div>
+    <div class="dish"><h4>Shrimp Taco</h4><span class="dish__price">$4.08</span><p>Seasoned shrimp on a soft corn tortilla with lettuce, onion and cilantro.</p></div>
+    <div class="dish"><h4>Fish Taco</h4><span class="dish__price">$4.67</span><p>Seasoned fish on a soft corn tortilla with lettuce, onion and cilantro.</p></div>
+    <div class="dish"><h4>Taco Salad</h4><span class="dish__price">$16.61+</span><p>Lettuce, tomato and onion with rice, beans, your choice of meat, guacamole and sour cream in a crisp shell bowl.</p></div>
+    <div class="dish"><h4>Taco Salad Shrimp</h4><span class="dish__price">$16.99</span><p>The same salad built with shrimp or fish, guacamole and sour cream.</p></div>
+    <div class="dish"><h4>Taco Combo 10</h4><span class="dish__price">$39.99+</span><p>Ten soft corn tacos with your choice of meat, onion and cilantro, plus Mexican rice and refried beans.</p></div>
+    <div class="dish"><h4>Taco Combo 20</h4><span class="dish__price">$79.99+</span><p>Twenty tacos with your choice of meat, plus rice and refried beans. Built for a crowd.</p></div>
+  </section>
+
+  <!-- BURRITOS -->
+  <section class="msec" id="burritos">
+    <div class="msec__head"><h2>Burritos</h2></div>
+    <div class="dish"><h4>Famous Jalisco Burrito <span class="dish__pop">Popular</span></h4><span class="dish__price">$16.99+</span><p>Wet. Meat, rice, pinto beans, onion, cilantro, cheese and sour cream under enchilada sauce and melted cheese.</p></div>
+    <div class="dish"><h4>Super Burrito</h4><span class="dish__price">$14.75+</span><p>Your choice of meat with rice, pinto beans, onion, cilantro, cheese and sour cream.</p></div>
+    <div class="dish"><h4>Regular Burrito</h4><span class="dish__price">$12.72+</span><p>Your choice of meat with rice, pinto beans, onion and cilantro.</p></div>
+    <div class="dish"><h4>Bean &amp; Cheese Burrito</h4><span class="dish__price">$6.99</span><p>Cheese and refried beans in a flour tortilla.</p></div>
+    <div class="dish"><h4>Super Chile Verde Burrito</h4><span class="dish__price">$14.99</span><p>Pork simmered in tomatillo chile verde with rice, pinto beans, cheese, sour cream, onion and cilantro.</p></div>
+    <div class="dish"><h4>Chile Relleno Super Burrito</h4><span class="dish__price">$13.99</span><p>Chile relleno with rice, pinto beans, onion, cilantro, cheese and sour cream.</p></div>
+    <div class="dish"><h4>Super Shrimp Burrito</h4><span class="dish__price">$17.25</span><p>Seasoned shrimp with rice, pinto beans, cheese, sour cream, onion and cilantro.</p></div>
+    <div class="dish"><h4>Regular Shrimp Burrito</h4><span class="dish__price">$15.99+</span><p>Seasoned shrimp with rice, whole pinto beans, onion and cilantro.</p></div>
+    <div class="dish"><h4>Super Fish Burrito</h4><span class="dish__price">$16.92</span><p>Fish with rice, pinto beans, cheese, sour cream, onion and cilantro.</p></div>
+    <div class="dish"><h4>Regular Fish Burrito</h4><span class="dish__price">$15.27</span><p>Fish with rice, whole pinto beans, onion and cilantro.</p></div>
+  </section>
+
+  <!-- QUESADILLAS -->
+  <section class="msec" id="quesadillas">
+    <div class="msec__head"><h2>Quesadillas</h2></div>
+    <div class="dish"><h4>Meat Quesadillas <span class="dish__pop">Popular</span></h4><span class="dish__price">$12.95+</span><p>Lettuce, onions, cilantro and tomatoes.</p></div>
+    <div class="dish"><h4>Shrimp Quesadilla</h4><span class="dish__price">$15.99</span><p>Lettuce, onions, cilantro and tomatoes.</p></div>
+    <div class="dish"><h4>Cheese Quesadilla</h4><span class="dish__price">$7.38</span><p>Cheese only.</p></div>
+  </section>
+
+  <!-- PLATOS -->
+  <section class="msec" id="platos">
+    <div class="msec__head"><h2>Platos</h2></div>
+    <div class="dish"><h4>Plato De Birria</h4><span class="dish__price">$22.92</span><p>Beef braised with chiles, herbs and spices until it falls apart. With rice, refried beans, onion, cilantro, lime and warm tortillas.</p></div>
+    <div class="dish"><h4>Carne Asada Plate</h4><span class="dish__price">$23.25</span><p>Flame-grilled marinated skirt steak with rice, refried beans, onion, bell pepper, pico de gallo, guacamole and tortillas.</p></div>
+    <div class="dish"><h4>Fajitas Plate</h4><span class="dish__price">$28.65+</span><p>Chicken, steak or both, grilled with bell pepper and onion. With tortillas, guacamole, sour cream, rice and beans.</p></div>
+    <div class="dish"><h4>Steak Ranchero Plate</h4><span class="dish__price">$23.25</span><p>Grilled steak simmered in ranchero sauce with tomato, onion and jalapeño. With rice, beans and warm tortillas.</p></div>
+    <div class="dish"><h4>Carnitas Plate</h4><span class="dish__price">$18.33</span><p>Jalisco-style slow-cooked pork, crisp at the edges. With rice, refried beans, pico de gallo and warm tortillas.</p></div>
+    <div class="dish"><h4>Chile Verde Plate</h4><span class="dish__price">$18.33</span><p>Pork slow-cooked in homemade tomatillo sauce with roasted chiles, garlic and onion. With rice, beans and tortillas.</p></div>
+    <div class="dish"><h4>Chile Relleno Plate</h4><span class="dish__price">$17.19</span><p>Fire-roasted poblano stuffed with cheese, egg-battered and fried, with ranchero sauce, rice and refried beans.</p></div>
+  </section>
+
+  <!-- MARISCOS -->
+  <section class="msec" id="mariscos">
+    <div class="msec__head"><h2>Mariscos</h2></div>
+    <div class="dish"><h4>Camarones Al Mojo De Ajo</h4><span class="dish__price">$27.17</span><p>Prawns sautéed with green onion, mushrooms, garlic, butter and white wine.</p></div>
+    <div class="dish"><h4>Camarones A La Diabla</h4><span class="dish__price">$27.72</span><p>Prawns with green onion and mushrooms in a spicy Jalisco-style sauce.</p></div>
+    <div class="dish"><h4>Camarones Rancheros</h4><span class="dish__price">$24.18</span><p>Prawns with green onion and mushrooms in our Jalisco-style ranchera sauce.</p></div>
+    <div class="dish"><h4>Coctel De Camarones</h4><span class="dish__price">$23.14</span><p>Pacific prawns cooked in their own juice with avocado, onion, tomato and cilantro. Served hot, warm or cold.</p></div>
+    <div class="dish"><h4>Tostada De Ceviche</h4><span class="dish__price">$9.16</span><p>Sea bass or shrimp cured in lime with carrot and pico de gallo, tostada on the side.</p></div>
+  </section>
+
+  <!-- VEGETARIAN -->
+  <section class="msec" id="vegetarian">
+    <div class="msec__head"><h2>Vegetarian</h2></div>
+    <div class="dish"><h4>Veggie Burrito</h4><span class="dish__price">$11.99</span><p>Rice, whole pinto beans, cheese, sour cream, onion, cilantro, tomato and lettuce.</p></div>
+    <div class="dish"><h4>Vegan Burrito</h4><span class="dish__price">$11.01</span><p>Rice, pinto beans, onion, cilantro, lettuce, tomato and your choice of guacamole or avocado.</p></div>
+    <div class="dish"><h4>Veggie Plate</h4><span class="dish__price">$11.19</span><p>Rice, whole pinto beans, cheese, sour cream, onion, cilantro, tomato and lettuce.</p></div>
+    <div class="dish"><h4>Veggie Nachos</h4><span class="dish__price">$13.88+</span><p>Rice, beans, cheese, sour cream, onion, cilantro, tomato and jalapeño.</p></div>
+    <div class="dish"><h4>Veggie Quesadilla</h4><span class="dish__price">$8.99</span><p>Tomato, onion, lettuce and cilantro melted with cheese in a grilled flour tortilla.</p></div>
+    <div class="dish"><h4>Veggie Taco</h4><span class="dish__price">$3.99</span><p>Rice, pinto beans, cheese, sour cream, onion, cilantro, tomato and lettuce.</p></div>
+  </section>
+
+  <!-- COMBOS -->
+  <section class="msec" id="combos">
+    <div class="msec__head"><h2>Combos</h2></div>
+    <div class="dish"><h4>Chimichanga Combo <span class="dish__pop">Popular</span></h4><span class="dish__price">$18.73+</span><p>Deep-fried burrito with rice, pinto beans, onion, cilantro and cheese, plus sour cream and guacamole.</p></div>
+    <div class="dish"><h4>Jalisco Flautas Combo</h4><span class="dish__price">$15.60</span><p>Three chicken flautas with parmesan, flauta sauce, lettuce, sour cream and guacamole, with rice and refried beans.</p></div>
+    <div class="dish"><h4>Taco &amp; Enchilada Combo</h4><span class="dish__price">$12.12+</span><p>One taco with onion and cilantro plus one enchilada, with rice and refried beans.</p></div>
+    <div class="dish"><h4>2 Enchilada Combo</h4><span class="dish__price">$12.98+</span><p>Two rolled corn tortillas with meat, enchilada sauce, sour cream and lettuce, with rice and refried beans.</p></div>
+    <div class="dish"><h4>Taco Combo</h4><span class="dish__price">$11.30+</span><p>Two soft corn tortillas with your choice of meat, with rice and refried beans.</p></div>
+  </section>
+
+  <!-- BREAKFAST -->
+  <section class="msec" id="breakfast">
+    <div class="msec__head"><h2>Breakfast</h2></div>
+    <p class="msec__note">Served all day, from 10am</p>
+    <div class="dish"><h4>Chilaquiles</h4><span class="dish__price">$18.99+</span><p>Tortilla chips tossed in red salsa with avocado, crema, queso and cilantro. Served with two eggs and refried beans.</p></div>
+    <div class="dish"><h4>Huevos Rancheros</h4><span class="dish__price">$16.99</span><p>Eggs any style with black beans, cheese, sour cream, salsa, onion, bell pepper, avocado and tortillas.</p></div>
+    <div class="dish"><h4>Breakfast Plate</h4><span class="dish__price">$18.25</span><p>Eggs any style with beans, sour cream, hash browns, avocado, your choice of meat and tortillas.</p></div>
+    <div class="dish"><h4>Bacon Breakfast Burrito</h4><span class="dish__price">$11.87</span><p>Eggs, bacon, pico de gallo, jack cheese and fries in a flour tortilla.</p></div>
+    <div class="dish"><h4>Chorizo Breakfast Burrito</h4><span class="dish__price">$11.87</span><p>Eggs, chorizo, refried beans and jack cheese in a flour tortilla.</p></div>
+    <div class="dish"><h4>Ham Breakfast Burrito</h4><span class="dish__price">$11.87</span><p>Eggs, ham, refried beans, jack cheese and fries in a flour tortilla.</p></div>
+  </section>
+
+  <!-- SIDES -->
+  <section class="msec" id="sides">
+    <div class="msec__head"><h2>Sides &amp; Extras</h2></div>
+    <div class="dish"><h4>Guacamole</h4><span class="dish__price">$6.60+</span></div>
+    <div class="dish"><h4>Rice</h4><span class="dish__price">$4.55+</span></div>
+    <div class="dish"><h4>Beans</h4><span class="dish__price">$4.50+</span><p>Topped with cheese.</p></div>
+    <div class="dish"><h4>Rice &amp; Beans</h4><span class="dish__price">$4.55</span></div>
+    <div class="dish"><h4>Pico de Gallo</h4><span class="dish__price">$3.99+</span></div>
+    <div class="dish"><h4>Grilled Chiles Serranos</h4><span class="dish__price">$2.50</span><p>Three pieces.</p></div>
+    <div class="dish"><h4>Nacho Cheese</h4><span class="dish__price">$3.00</span><p>6 oz.</p></div>
+    <div class="dish"><h4>Sour Cream</h4><span class="dish__price">$1.54</span><p>4 oz.</p></div>
+    <div class="dish"><h4>Avocado</h4><span class="dish__price">$3.84</span></div>
+  </section>
+
+  <!-- SALSA -->
+  <section class="msec" id="salsa">
+    <div class="msec__head"><h2>Salsa</h2></div>
+    <div class="dish"><h4>Salsa</h4><span class="dish__price">$3.99+</span><p>Made fresh in our kitchen every morning.</p></div>
+  </section>
+
+  <!-- DRINKS -->
+  <section class="msec" id="drinks">
+    <div class="msec__head"><h2>Drinks</h2></div>
+    <div class="dish"><h4>Agua Fresca</h4><span class="dish__price">$4.99+</span><p>Rotating flavors including jamaica and pineapple.</p></div>
+    <div class="dish"><h4>Coca Cola De Botella</h4><span class="dish__price">$5.49</span><p>Mexican Coke in glass.</p></div>
+    <div class="dish"><h4>Jarritos</h4><span class="dish__price">$4.25</span></div>
+    <div class="dish"><h4>Snapple</h4><span class="dish__price">$4.25</span></div>
+    <div class="dish"><h4>Can Soda</h4><span class="dish__price">$3.00</span></div>
+    <div class="dish"><h4>Bottled Water</h4><span class="dish__price">$3.00</span></div>
+  </section>
+
+  <!-- CTA -->
+  <div class="mcta">
+    <h3>Hungry yet?</h3>
+    <p>Pickup &amp; delivery · No third-party markup</p>
+    <a class="btn" href="https://order.boons.io/site/tacos-jalisco/244/y" target="_blank" rel="noopener noreferrer"><span>Order online</span></a>
+  </div>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="foot">
+  <img class="foot__logo" src="assets/logo.png?v=4" alt="Tacos Jalisco">
+  <p>3420 Sonoma Blvd, Vallejo, CA 94590 · Open daily 10am – 9pm · <a href="tel:+17076470554" style="text-decoration:underline">+1 707-647-0554</a></p>
+  <div class="foot__links">
+    <a href="./">Home</a>
+    <a href="https://order.boons.io/site/catering/tacos-jalisco/244/y" target="_blank" rel="noopener noreferrer">Catering</a>
+    <a href="events.html">Events</a>
+    <a href="hiring.html">Careers</a>
+    <a href="https://www.boons.io/terms-of-service" target="_blank" rel="noopener">Terms</a>
+    <a href="https://www.boons.io/privacy-policy" target="_blank" rel="noopener">Privacy</a>
+    <a href="https://www.boons.io/accessibility-statement" target="_blank" rel="noopener">Accessibility</a>
+  </div>
+  <span class="powered-by">Powered by <a href="https://www.boons.io/" target="_blank" rel="noopener" aria-label="boons"><img src="assets/boons-logo.png" alt="boons" style="height:20px;width:auto"></a></span>
+</footer>
+
+<!-- sticky order bar -->
+<div class="orderbar">
+  <a class="btn btn--ghost" href="tel:+17076470554"><span>Call</span></a>
+  <a class="btn btn--solid" href="https://order.boons.io/site/tacos-jalisco/244/y" target="_blank" rel="noopener noreferrer"><span>Order online</span></a>
+</div>
+
+<script src="config.js"></script>
+<script>
+(function(){
+  'use strict';
+  if(window.SITE_CONFIG&&window.SITE_CONFIG.hiringOpen){
+    document.querySelectorAll('[data-hiring]').forEach(function(el){el.hidden=false});
+  }
+  var chips=[].slice.call(document.querySelectorAll('.chip'));
+  var secs=chips.map(function(c){return document.querySelector(c.getAttribute('href'))});
+  var chipsBar=document.getElementById('chips');
+
+  function setOn(i){
+    chips.forEach(function(c,j){c.classList.toggle('is-on',i===j)});
+    var c=chips[i];
+    if(c&&chipsBar){
+      var left=c.offsetLeft-(chipsBar.clientWidth-c.clientWidth)/2;
+      chipsBar.scrollTo({left:left,behavior:'smooth'});
+    }
+  }
+
+  /* scrollspy */
+  var ticking=false;
+  function spy(){
+    var probe=window.scrollY+140;
+    var i=0;
+    for(var j=0;j<secs.length;j++){
+      if(secs[j]&&secs[j].offsetTop<=probe) i=j;
+    }
+    setOn(i);
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){requestAnimationFrame(spy);ticking=true}
+  },{passive:true});
+  spy();
+})();
+</script>
+
+<script src="accessibility.js"></script>
+
+</body>
+</html>

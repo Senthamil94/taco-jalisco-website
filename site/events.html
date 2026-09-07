@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Events — Tacos Jalisco, Vallejo CA</title>
+<meta name="description" content="Taquiza on-site catering and tray catering for parties, weddings and corporate events in Vallejo, CA. Call or email for custom catering and events.">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://tacosjaliscovallejo.com/events.html">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png?v=4">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="accessibility.css">
+
+<style>
+:root{
+  --ember:#db594b;
+  --ember-dk:#c04434;
+  --gold:#e9a83a;
+  --agave:#4f7a4a;
+  --cream:#f7f0e4;
+  --cream-2:#efe3cf;
+  --ink:#1d1410;
+  --char:#261b14;
+  --line:rgba(29,20,16,.14);
+  --line-inv:rgba(247,240,228,.16);
+  --disp:'Anton',Impact,sans-serif;
+  --cond:'Barlow Condensed',Arial Narrow,sans-serif;
+  --body:'Manrope',system-ui,sans-serif;
+  --nav-h:76px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--nav-h) + 16px)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{
+  font-family:var(--body);font-weight:500;background:var(--cream);color:var(--ink);
+  line-height:1.6;font-size:17px;overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
+::selection{background:var(--ember);color:var(--cream)}
+[hidden]{display:none!important}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:54px;padding:0 28px;border-radius:999px;
+  font-family:var(--cond);font-weight:700;text-transform:uppercase;
+  letter-spacing:.14em;font-size:16px;line-height:1;
+  transition:transform .18s ease,background .18s ease;
+  -webkit-tap-highlight-color:transparent;user-select:none;
+}
+.btn:active{transform:scale(.97)}
+.btn--solid{background:var(--ember);color:#fff;box-shadow:0 8px 24px rgba(219,89,75,.35)}
+.btn--solid:hover{background:var(--ember-dk)}
+.btn--ghost{border:2px solid currentColor;background:transparent}
+.btn--sm{min-height:46px;padding:0 20px;font-size:14px}
+
+/* top bar */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:60;height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:0 16px;background:#fff;color:var(--ink);
+  border-bottom:1px solid var(--line);box-shadow:0 4px 24px rgba(29,20,16,.1);
+}
+.nav__back{
+  display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 6px;
+  font-family:var(--cond);font-weight:600;font-size:16px;letter-spacing:.1em;text-transform:uppercase;
+}
+.nav__back svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.nav__logo img{height:64px;width:auto;object-fit:contain}
+@media (min-width:900px){
+  :root{--nav-h:88px}
+  .nav{padding:0 32px}
+  .nav__logo img{height:76px}
+}
+
+/* page head */
+.ehero{
+  background:var(--ink);color:var(--cream);
+  padding:calc(var(--nav-h) + 44px) 20px 36px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.ehero::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(120% 90% at 50% -20%,rgba(219,89,75,.35),transparent 60%);
+  pointer-events:none;
+}
+.ehero>*{position:relative;z-index:1}
+.ehero .eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--cond);font-weight:700;text-transform:uppercase;
+  letter-spacing:.24em;font-size:13px;color:var(--gold);
+}
+.ehero .eyebrow i{width:26px;height:3px;background:var(--gold);border-radius:2px}
+.ehero h1{
+  font-family:var(--disp);font-weight:400;text-transform:uppercase;
+  font-size:clamp(34px,8.5vw,64px);line-height:.98;margin:12px 0 0;
+}
+.ehero h1 em{font-style:normal;color:var(--ember)}
+@media (min-width:900px){.ehero{padding-top:calc(var(--nav-h) + 64px);padding-bottom:48px}}
+
+.wrap{max-width:960px;margin:0 auto;padding:40px 20px calc(120px + env(safe-area-inset-bottom))}
+
+/* offering cards */
+.offers{display:grid;gap:16px}
+.offercard{
+  background:#fff;border-radius:22px;overflow:hidden;
+  box-shadow:0 6px 26px rgba(29,20,16,.08);
+  display:flex;flex-direction:column;
+}
+.offercard img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.offercard__body{padding:24px 22px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.offercard h2{
+  font-family:var(--disp);font-weight:400;text-transform:uppercase;
+  font-size:clamp(24px,5.8vw,34px);line-height:1;
+}
+.offercard__tag{
+  align-self:flex-start;
+  font-family:var(--cond);font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+  background:var(--ink);color:var(--gold);border-radius:999px;padding:5px 12px;
+}
+.offercard p{font-size:15.5px;font-weight:500;opacity:.8;line-height:1.65}
+.offercard .btn{align-self:flex-start;margin-top:8px}
+@media (min-width:820px){.offers{grid-template-columns:1fr 1fr}}
+
+/* inquiry form — same UI as hiring.html */
+.jobform-head{margin-bottom:20px}
+.jobform-head h3{
+  font-family:var(--disp);font-weight:400;text-transform:uppercase;
+  font-size:clamp(25px,6vw,38px);line-height:1.02;margin-bottom:10px;
+}
+.jobform-head h3 em{font-style:normal;color:var(--ember)}
+.jobform-sub{font-weight:600;opacity:.75;font-size:15.5px;margin-bottom:12px}
+.jobform-loc{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--cond);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+  background:var(--cream-2);border-radius:999px;padding:7px 14px;
+}
+.jobform-loc::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--ember)}
+.jobform__req{
+  font-family:var(--cond);font-weight:600;font-size:13.5px;letter-spacing:.12em;
+  text-transform:uppercase;opacity:.6;text-align:center;
+}
+.jobform-card{
+  background:#fff;border-radius:22px;padding:28px 22px;margin-top:28px;
+  box-shadow:0 6px 26px rgba(29,20,16,.08);
+}
+.jobform{display:grid;gap:12px}
+.jobform__grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.jobform__field{display:grid;gap:6px}
+.jobform__field>span{
+  font-family:var(--cond);font-weight:700;font-size:13px;
+  letter-spacing:.12em;text-transform:uppercase;opacity:.6;
+}
+.jobform input,.jobform select,.jobform textarea{
+  font:inherit;font-weight:600;font-size:16px;color:var(--ink);
+  padding:14px 16px;border-radius:12px;border:2px solid var(--line);
+  background:#fff;width:100%;min-height:52px;
+}
+.jobform textarea{resize:vertical}
+.jobform input:focus,.jobform select:focus,.jobform textarea:focus{outline:none;border-color:var(--ember)}
+.jobform__ok{
+  display:none;background:#e6f4e6;border:2px solid #4f7a4a;color:#2c4a28;
+  border-radius:12px;padding:16px;font-weight:700;text-align:center;
+}
+.jobform__err{
+  display:none;background:#fdeceb;border:2px solid var(--ember);color:#8c2517;
+  border-radius:12px;padding:16px;font-weight:700;text-align:center;
+}
+@media (max-width:640px){.jobform__grid{grid-template-columns:1fr}}
+
+/* call / email */
+.evreach{
+  position:relative;overflow:hidden;
+  background:var(--ink);color:var(--cream);
+  border-radius:22px;padding:36px 24px 32px;margin-top:28px;
+  text-align:center;
+  box-shadow:0 16px 48px rgba(29,20,16,.22);
+}
+.evreach::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(90% 70% at 50% -10%,rgba(219,89,75,.42),transparent 58%),
+    radial-gradient(70% 50% at 100% 100%,rgba(233,168,58,.16),transparent 50%);
+  pointer-events:none;
+}
+.evreach>*{position:relative;z-index:1}
+.evreach__eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--cond);font-weight:700;text-transform:uppercase;
+  letter-spacing:.24em;font-size:13px;color:var(--gold);
+}
+.evreach__eyebrow i{width:26px;height:3px;background:var(--gold);border-radius:2px}
+.evreach h2{
+  font-family:var(--disp);font-weight:400;text-transform:uppercase;
+  font-size:clamp(30px,7vw,52px);line-height:.98;margin:14px 0 12px;
+}
+.evreach h2 em{font-style:normal;color:var(--ember)}
+.evreach__lede{
+  max-width:520px;margin:0 auto 26px;
+  font-weight:600;font-size:16px;line-height:1.6;opacity:.82;
+}
+.evreach__opts{display:grid;gap:12px;margin:0 auto}
+.evreach__opt{
+  display:flex;align-items:center;gap:12px;text-align:left;
+  background:rgba(247,240,228,.08);border:1px solid rgba(247,240,228,.16);
+  border-radius:16px;padding:16px 14px;
+  transition:background .18s ease,transform .18s ease;
+  min-width:0;
+}
+.evreach__opt:hover{background:rgba(247,240,228,.14);transform:translateY(-1px)}
+.evreach__ico{
+  flex-shrink:0;width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--ember);color:#fff;
+  box-shadow:0 8px 20px rgba(219,89,75,.35);
+}
+.evreach__ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.evreach__k{
+  font-family:var(--cond);font-weight:700;font-size:13px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+  display:block;margin-bottom:2px;
+}
+.evreach__v{
+  font-weight:800;font-size:clamp(12.5px,3.8vw,16px);line-height:1.25;
+  white-space:nowrap;letter-spacing:-.01em;
+}
+@media (min-width:640px){
+  .evreach{padding:48px 40px 40px}
+  .evreach__opt{padding:16px 18px;gap:16px}
+  .evreach__ico{width:52px;height:52px}
+  .evreach__ico svg{width:24px;height:24px}
+  .evreach__v{font-size:16px;letter-spacing:0}
+}
+@media (min-width:900px){
+  .evreach__opts{grid-template-columns:1fr 1fr}
+}
+
+/* footer */
+.foot{
+  background:var(--char);color:var(--cream);text-align:center;
+  padding:44px 20px calc(120px + env(safe-area-inset-bottom));font-size:13.5px;
+}
+.foot__logo{height:68px;width:auto;margin:0 auto 14px;object-fit:contain}
+.foot p{opacity:.75;font-weight:500;margin-bottom:18px}
+.foot__links{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;margin-bottom:22px;font-family:var(--cond);font-weight:600;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
+.foot__links a{opacity:.8}
+.foot__links a:hover{opacity:1;color:var(--gold)}
+.powered-by{display:inline-flex;align-items:center;gap:8px;opacity:.7}
+@media (min-width:900px){.foot{padding-bottom:56px}}
+
+/* sticky order bar */
+.orderbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+  padding:12px 12px calc(12px + env(safe-area-inset-bottom));
+  background:rgba(29,20,16,.94);backdrop-filter:blur(14px);
+  border-top:1px solid var(--line-inv);
+}
+.orderbar .btn{
+  padding:0 10px;font-size:14px;letter-spacing:.06em;white-space:nowrap;
+}
+.orderbar .btn--ghost{color:var(--cream)}
+@media (min-width:900px){
+  .orderbar{left:auto;right:32px;bottom:24px;border:0;background:none;backdrop-filter:none;padding:0;grid-template-columns:auto}
+  .orderbar .btn--ghost{display:none}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══════════ TOP BAR ══════════ -->
+<header class="nav">
+  <a class="nav__back" href="./" aria-label="Back to home">
+    <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg> Home
+  </a>
+  <a class="nav__logo" href="./" aria-label="Tacos Jalisco — home">
+    <img src="assets/logo.png?v=4" alt="Tacos Jalisco">
+  </a>
+  <a class="btn btn--solid btn--sm" href="https://order.boons.io/site/catering/tacos-jalisco/244/y" target="_blank" rel="noopener noreferrer"><span>Catering</span></a>
+</header>
+
+<!-- ══════════ PAGE HEAD ══════════ -->
+<section class="ehero">
+  <div class="eyebrow"><i></i> Tacos Jalisco · Vallejo CA</div>
+  <h1>Events &amp; <em>Special Orders</em></h1>
+</section>
+
+<main class="wrap">
+
+  <!-- OFFERINGS -->
+  <div class="offers">
+    <article class="offercard">
+      <img src="assets/catering.png" alt="Fresh tacos and trays prepared for an event" loading="lazy">
+      <div class="offercard__body">
+        <span class="offercard__tag">On-site · Min 35 guests</span>
+        <h2>Taquiza On-Site Catering</h2>
+        <p>We bring the taquiza experience straight to your event — made-to-order tacos, a full salsa bar, and sizzling fajitas prepared fresh on-site. Perfect for parties, weddings, corporate events and celebrations.</p>
+        <a class="btn btn--solid" href="#request"><span>Request a quote</span></a>
+      </div>
+    </article>
+
+    <article class="offercard">
+      <img src="assets/table-dishes.jpg" alt="A table of freshly made Tacos Jalisco dishes" loading="lazy">
+      <div class="offercard__body">
+        <span class="offercard__tag">Pickup &amp; delivery</span>
+        <h2>Tray Catering Menu</h2>
+        <p>Pre-prepared dishes built for transport — ideal for office lunches and family gatherings where you&rsquo;d rather set up and serve yourself. Order trays straight from the catering menu.</p>
+        <a class="btn btn--ghost" href="https://order.boons.io/site/catering/tacos-jalisco/244/y" target="_blank" rel="noopener noreferrer"><span>View catering menu</span></a>
+      </div>
+    </article>
+  </div>
+
+  <div class="jobform-card" id="request">
+    <div class="jobform-head">
+      <h3>Tell us about your <em>event.</em></h3>
+      <p class="jobform-sub">Fill out this quick form and we&rsquo;ll get back to you with a plan for your celebration.</p>
+      <span class="jobform-loc">Vallejo &middot; 3420 Sonoma Blvd</span>
+    </div>
+
+    <form class="jobform" id="eventform" novalidate>
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+      <input type="text" name="Full Name" placeholder="Full name *" autocomplete="name" autocapitalize="words" spellcheck="false" maxlength="80" inputmode="text" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+( [A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*" title="Letters only — no numbers or special characters." required>
+      <div class="jobform__grid">
+        <input type="email" name="Email Address" placeholder="Email address *" autocomplete="email" required>
+        <input type="tel" name="Phone Number" placeholder="Phone number *  (555) 123-4567" autocomplete="tel" inputmode="numeric" maxlength="14" pattern="\(\d{3}\) \d{3}-\d{4}" title="Enter a US phone number, e.g. (707) 647-0554." required>
+      </div>
+
+      <select name="Event Type" aria-label="Event type" required>
+        <option value="" disabled selected>Event type *</option>
+        <option>Wedding</option>
+        <option>Birthday</option>
+        <option>Corporate</option>
+        <option>Graduation</option>
+        <option>Holiday Party</option>
+        <option>Private Party</option>
+        <option>Other</option>
+      </select>
+
+      <div class="jobform__grid">
+        <label class="jobform__field">
+          <span>Event date *</span>
+          <input type="date" name="Event Date" aria-label="Event date" required>
+        </label>
+        <label class="jobform__field">
+          <span>Preferred start time</span>
+          <input type="time" name="Preferred Start Time" aria-label="Preferred start time">
+        </label>
+      </div>
+
+      <input type="text" name="Number of Guests" placeholder="Number of guests *" inputmode="numeric" maxlength="3" pattern="[1-9][0-9]{0,2}" autocomplete="off" required>
+      <textarea name="Message" rows="4" placeholder="Message"></textarea>
+
+      <p class="jobform__req">* Required fields</p>
+
+      <div class="jobform__ok" id="efOk">&#10003; You&rsquo;re all set &mdash; we received your event inquiry.</div>
+      <div class="jobform__err" id="efErr">Couldn&rsquo;t send right now &mdash; please call <a href="tel:+17076470554" style="text-decoration:underline">+1 707-647-0554</a> or try again.</div>
+
+      <button class="btn btn--solid" type="submit" id="efBtn"><span>Submit</span></button>
+    </form>
+  </div>
+
+  <section class="evreach">
+    <div class="evreach__eyebrow"><i></i> Custom &amp; events catering</div>
+    <h2>Let&rsquo;s plan your <em>celebration.</em></h2>
+    <p class="evreach__lede">Weddings, office lunches, quincea&ntilde;eras, and everything in between. Call or email and we&rsquo;ll build a menu around your event.</p>
+    <div class="evreach__opts">
+      <a class="evreach__opt" href="tel:+17076470554">
+        <span class="evreach__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M6.5 3.8l2.2 2.2a1.6 1.6 0 010 2.3l-1 1c1.2 2.4 3.1 4.3 5.5 5.5l1-1a1.6 1.6 0 012.3 0l2.2 2.2a1.6 1.6 0 010 2.3l-1.3 1.3c-.8.8-2 1.1-3.1.7C9.6 18.4 5.6 14.4 3.7 9.7c-.4-1.1-.1-2.3.7-3.1L5.7 5.3a1.6 1.6 0 01.8-.5z"/></svg>
+        </span>
+        <span>
+          <span class="evreach__k">Call us</span>
+          <span class="evreach__v">+1 707-647-0554</span>
+        </span>
+      </a>
+      <a class="evreach__opt" href="mailto:tacosjaliscovallejo@gmail.com?subject=Catering%20inquiry%20%E2%80%94%20Tacos%20Jalisco">
+        <span class="evreach__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4z"/><path d="M4 7l8 6 8-6"/></svg>
+        </span>
+        <span>
+          <span class="evreach__k">Email us</span>
+          <span class="evreach__v">tacosjaliscovallejo@gmail.com</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="foot">
+  <img class="foot__logo" src="assets/logo.png?v=4" alt="Tacos Jalisco">
+  <p>3420 Sonoma Blvd, Vallejo, CA 94590 · Open daily 10am – 9pm · <a href="tel:+17076470554" style="text-decoration:underline">+1 707-647-0554</a></p>
+  <div class="foot__links">
+    <a href="./">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="https://order.boons.io/site/catering/tacos-jalisco/244/y" target="_blank" rel="noopener noreferrer">Catering</a>
+    <a href="hiring.html">Careers</a>
+    <a href="https://www.boons.io/terms-of-service" target="_blank" rel="noopener">Terms</a>
+    <a href="https://www.boons.io/privacy-policy" target="_blank" rel="noopener">Privacy</a>
+    <a href="https://www.boons.io/accessibility-statement" target="_blank" rel="noopener">Accessibility</a>
+  </div>
+  <span class="powered-by">Powered by <a href="https://www.boons.io/" target="_blank" rel="noopener" aria-label="boons"><img src="assets/boons-logo.png" alt="boons" style="height:20px;width:auto"></a></span>
+</footer>
+
+<!-- sticky order bar -->
+<div class="orderbar">
+  <a class="btn btn--solid" href="https://order.boons.io/site/tacos-jalisco/244/y" target="_blank" rel="noopener noreferrer"><span>Order online</span></a>
+  <a class="btn btn--ghost" href="https://order.boons.io/site/catering/tacos-jalisco/244/y" target="_blank" rel="noopener noreferrer"><span>Order catering</span></a>
+</div>
+
+<script src="config.js"></script>
+<script src="accessibility.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  /* event inquiry form -> AWS Lambda proxy -> boons-notification-api (email + SMS) */
+  var EVENTFORM_ENDPOINT='https://36zu3ycxqrpk2w27vb6g2qeoki0qwygl.lambda-url.us-east-2.on.aws/';
+  var ef=document.getElementById('eventform');
+  var dateInput=ef&&ef.querySelector('input[name="Event Date"]');
+  var nameInput=ef&&ef.querySelector('input[name="Full Name"]');
+  var phoneInput=ef&&ef.querySelector('input[name="Phone Number"]');
+  var guestsInput=ef&&ef.querySelector('input[name="Number of Guests"]');
+  var NAME_OK=/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(?: [A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/;
+  var US_NANP=/^[2-9]\d{2}[2-9]\d{6}$/;
+
+  function lettersOnly(value){
+    return value.replace(/[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]+/g,'').replace(/ {2,}/g,' ');
+  }
+  function usDigits(value){
+    var d=value.replace(/\D/g,'');
+    if(d.length>=11&&d.charAt(0)==='1')d=d.slice(1);
+    return d.slice(0,10);
+  }
+  function formatUSPhone(d){
+    if(!d)return '';
+    if(d.length<4)return '('+d;
+    if(d.length<7)return '('+d.slice(0,3)+') '+d.slice(3);
+    return '('+d.slice(0,3)+') '+d.slice(3,6)+'-'+d.slice(6);
+  }
+  function validateName(el){
+    var v=el.value.trim();
+    if(!v){el.setCustomValidity('');return}
+    if(!NAME_OK.test(v))el.setCustomValidity('Full name can only contain letters.');
+    else el.setCustomValidity('');
+  }
+  function validatePhone(el){
+    var d=usDigits(el.value);
+    if(!d){el.setCustomValidity('');return}
+    if(!US_NANP.test(d))el.setCustomValidity('Enter a valid US phone number, e.g. (707) 647-0554.');
+    else el.setCustomValidity('');
+  }
+  function guestsDigits(value){
+    return value.replace(/\D/g,'').slice(0,3);
+  }
+  function validateGuests(el){
+    var d=guestsDigits(el.value);
+    if(!d){el.setCustomValidity('');return}
+    var n=parseInt(d,10);
+    if(!n||n<1||n>999)el.setCustomValidity('Number of guests can be at most 3 digits (1–999).');
+    else el.setCustomValidity('');
+  }
+
+  if(nameInput){
+    nameInput.addEventListener('input',function(){
+      var cleaned=lettersOnly(this.value);
+      if(this.value!==cleaned)this.value=cleaned;
+      validateName(this);
+    });
+    nameInput.addEventListener('blur',function(){
+      this.value=this.value.trim();
+      validateName(this);
+    });
+  }
+  if(phoneInput){
+    phoneInput.addEventListener('input',function(){
+      this.value=formatUSPhone(usDigits(this.value));
+      validatePhone(this);
+    });
+    phoneInput.addEventListener('blur',function(){
+      validatePhone(this);
+    });
+  }
+  if(guestsInput){
+    guestsInput.addEventListener('input',function(){
+      var cleaned=guestsDigits(this.value);
+      if(this.value!==cleaned)this.value=cleaned;
+      validateGuests(this);
+    });
+    guestsInput.addEventListener('blur',function(){
+      var n=parseInt(guestsDigits(this.value),10);
+      if(n)this.value=String(n);
+      validateGuests(this);
+    });
+  }
+
+  if(dateInput){
+    var today=new Date();
+    var y=today.getFullYear();
+    var m=String(today.getMonth()+1).padStart(2,'0');
+    var d=String(today.getDate()).padStart(2,'0');
+    dateInput.min=y+'-'+m+'-'+d;
+  }
+  if(ef)ef.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(nameInput){nameInput.value=nameInput.value.trim();validateName(nameInput)}
+    if(phoneInput)validatePhone(phoneInput);
+    if(guestsInput){
+      var n=parseInt(guestsDigits(guestsInput.value),10);
+      if(n)guestsInput.value=String(n);
+      validateGuests(guestsInput);
+    }
+    if(!ef.checkValidity()){ef.reportValidity();return}
+    var btn=document.getElementById('efBtn'),ok=document.getElementById('efOk'),err=document.getElementById('efErr');
+    ok.style.display='none';err.style.display='none';
+    btn.disabled=true;btn.querySelector('span').textContent='Sending…';
+    var data=new FormData(ef);
+    if(phoneInput)data.set('Phone Number',usDigits(phoneInput.value));
+    fetch(EVENTFORM_ENDPOINT,{method:'POST',body:data,headers:{'Accept':'application/json'}})
+      .then(function(r){if(!r.ok)throw 0;return r.json()})
+      .then(function(){ok.style.display='block';ef.reset()})
+      .catch(function(){err.style.display='block'})
+      .finally(function(){btn.disabled=false;btn.querySelector('span').textContent='Submit'});
+  });
+})();
+</script>
+
+</body>
+</html>
