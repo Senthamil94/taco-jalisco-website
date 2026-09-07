@@ -206,6 +206,7 @@
       '</button>';
 
     document.documentElement.appendChild(container);
+    if (document.querySelector('.orderbar')) container.classList.add('lift');
     widgetRoot = container;
     panel = document.getElementById('accPanel');
     trigger = document.getElementById('accBtn');
@@ -378,10 +379,21 @@
     }
   }
 
+  function syncOrderBar() {
+    var bar = document.querySelector('.orderbar');
+    if (!bar) return;
+    var show = window.innerWidth <= 1024;
+    bar.style.setProperty('display', show ? 'grid' : 'none', 'important');
+    var acc = document.getElementById('acc');
+    if (acc) acc.classList.toggle('lift', show);
+  }
+
   function init() {
     initDefaults();
     createWidget();
     applySettings();
+    syncOrderBar();
+    window.addEventListener('resize', syncOrderBar);
   }
 
   if (document.readyState === 'loading') {

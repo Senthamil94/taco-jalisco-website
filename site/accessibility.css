@@ -16,8 +16,10 @@
 }
 .acc.lift{bottom:calc(92px + env(safe-area-inset-bottom))}
 @media (min-width:900px){
-  .acc{left:24px;bottom:24px}
-  .acc.lift{bottom:24px}
+  .acc{left:24px}
+}
+@media (min-width:1025px){
+  .acc,.acc.lift{left:24px;bottom:24px}
 }
 
 .acc__btn{

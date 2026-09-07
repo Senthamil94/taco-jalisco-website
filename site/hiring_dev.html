@@ -40,7 +40,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 }
 body{
   font-family:var(--body);font-weight:500;background:var(--cream);color:var(--ink);
-  line-height:1.6;font-size:17px;overflow-x:hidden;
+  line-height:1.6;font-size:17px;overflow-x:clip;
 }
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -106,7 +106,7 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
 .hhero h1 em{font-style:normal;color:var(--ember)}
 @media (min-width:900px){.hhero{padding-top:calc(var(--nav-h) + 64px);padding-bottom:48px}}
 
-.wrap{max-width:900px;margin:0 auto;padding:40px 20px calc(60px + env(safe-area-inset-bottom))}
+.wrap{max-width:900px;margin:0 auto;padding:40px 20px calc(120px + env(safe-area-inset-bottom))}
 
 /* role cards */
 .roles{display:grid;gap:16px}
@@ -182,6 +182,14 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
 }
 .jobform textarea{resize:vertical}
 .jobform input:focus,.jobform select:focus,.jobform textarea:focus{outline:none;border-color:var(--ember)}
+.jobform__cell{display:grid;gap:6px;min-width:0}
+.jobform input.is-invalid,.jobform select.is-invalid,.jobform textarea.is-invalid{
+  border-color:var(--ember);background:#fdf6f5;
+}
+.jobform__msg{
+  display:none;color:#8c2517;font-size:13.5px;font-weight:700;line-height:1.4;
+}
+.jobform__msg.is-on{display:block}
 .jobform__ok{
   display:none;background:#e6f4e6;border:2px solid #4f7a4a;color:#2c4a28;
   border-radius:12px;padding:16px;font-weight:700;text-align:center;
@@ -206,7 +214,7 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
 /* footer */
 .foot{
   background:var(--char);color:var(--cream);text-align:center;
-  padding:44px 20px calc(44px + env(safe-area-inset-bottom));font-size:13.5px;
+  padding:44px 20px calc(120px + env(safe-area-inset-bottom));font-size:13.5px;
 }
 .foot__logo{height:68px;width:auto;margin:0 auto 14px;object-fit:contain}
 .foot p{opacity:.75;font-weight:500;margin-bottom:18px}
@@ -214,6 +222,27 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
 .foot__links a{opacity:.8}
 .foot__links a:hover{opacity:1;color:var(--gold)}
 .powered-by{display:inline-flex;align-items:center;gap:8px;opacity:.7}
+
+/* sticky order bar */
+.orderbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:80;
+  display:none;grid-template-columns:1fr 1fr;gap:8px;
+  padding:12px 12px calc(12px + env(safe-area-inset-bottom));
+  background:rgba(29,20,16,.94);backdrop-filter:blur(14px);
+  border-top:1px solid var(--line-inv);
+}
+.orderbar .btn{
+  padding:0 10px;font-size:14px;letter-spacing:.06em;white-space:nowrap;
+}
+.orderbar .btn--ghost{color:var(--cream)}
+@media (min-width:900px){.foot{padding-bottom:calc(120px + env(safe-area-inset-bottom))}}
+@media (max-width:1024px){
+  .orderbar{display:grid !important}
+}
+@media (min-width:1025px){
+  .orderbar{display:none !important}
+  .foot{padding-bottom:56px}
+}
 
 </style>
 </head>
@@ -273,19 +302,31 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
       <form class="jobform" id="jobform" novalidate>
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
-        <select name="Position" aria-label="Position applying for *" required>
-          <option value="" disabled selected>Position applying for *</option>
-          <option>Line Cook</option>
-          <option>Prep Cook</option>
-          <option>Cashier / Counter</option>
-          <option>Server</option>
-          <option>Other / Any role</option>
-        </select>
+        <div class="jobform__cell">
+          <select name="Position" aria-label="Position applying for *" required>
+            <option value="" disabled selected>Position applying for *</option>
+            <option>Line Cook</option>
+            <option>Prep Cook</option>
+            <option>Cashier / Counter</option>
+            <option>Server</option>
+            <option>Other / Any role</option>
+          </select>
+          <span class="jobform__msg" role="alert"></span>
+        </div>
 
-        <input type="text" name="Name" placeholder="Full name *" autocomplete="name" autocapitalize="words" spellcheck="false" maxlength="80" inputmode="text" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+( [A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*" title="Letters only — no numbers or special characters." required>
+        <div class="jobform__cell">
+          <input type="text" name="Name" placeholder="Full name *" autocomplete="name" autocapitalize="words" spellcheck="false" maxlength="80" inputmode="text" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+( [A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*" title="Letters only — no numbers or special characters." required>
+          <span class="jobform__msg" role="alert"></span>
+        </div>
         <div class="jobform__grid">
-          <input type="email" name="Email" placeholder="Email *" autocomplete="email" required>
-          <input type="tel" name="Phone" placeholder="Phone number *  (555) 123-4567" autocomplete="tel" inputmode="numeric" maxlength="14" pattern="\(\d{3}\) \d{3}-\d{4}" title="Enter a US phone number, e.g. (707) 647-0554." required>
+          <div class="jobform__cell">
+            <input type="email" name="Email" placeholder="Email *" autocomplete="email" inputmode="email" maxlength="80" spellcheck="false" title="Enter an email like name@example.com" required>
+            <span class="jobform__msg" role="alert"></span>
+          </div>
+          <div class="jobform__cell">
+            <input type="tel" name="Phone" placeholder="Phone number *  (555) 123-4567" autocomplete="tel" inputmode="numeric" maxlength="14" pattern="\(\d{3}\) \d{3}-\d{4}" title="Enter a US phone number, e.g. (707) 647-0554." required>
+            <span class="jobform__msg" role="alert"></span>
+          </div>
         </div>
 
         <textarea name="Comment" id="jfComment" rows="3" placeholder="A few sentences about yourself"></textarea>
@@ -341,6 +382,12 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
   <span class="powered-by">Powered by <a href="https://www.boons.io/" target="_blank" rel="noopener" aria-label="boons"><img src="assets/boons-logo.png" alt="boons" style="height:20px;width:auto"></a></span>
 </footer>
 
+<!-- sticky order bar -->
+<div class="orderbar">
+  <a class="btn btn--solid" href="https://order.boons.io/site/tacos-jalisco/244/y" target="_blank" rel="noopener noreferrer"><span>Order online</span></a>
+  <a class="btn btn--ghost" href="https://order.boons.io/site/catering/tacos-jalisco/244/y" target="_blank" rel="noopener noreferrer"><span>Order catering</span></a>
+</div>
+
 <script src="config.js"></script>
 <script src="accessibility.js"></script>
 <script>
@@ -359,12 +406,28 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
   var jf=document.getElementById('jobform');
   var jfFile=document.getElementById('jfFile');
   var nameInput=jf&&jf.querySelector('input[name="Name"]');
+  var emailInput=jf&&jf.querySelector('input[name="Email"]');
   var phoneInput=jf&&jf.querySelector('input[name="Phone"]');
+  var positionSelect=jf&&jf.querySelector('select[name="Position"]');
   var jfErr=document.getElementById('jfErr');
   var jfErrDefault=jfErr?jfErr.innerHTML:'';
   var NAME_OK=/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(?: [A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/;
+  var EMAIL_OK=/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
   var US_NANP=/^[2-9]\d{2}[2-9]\d{6}$/;
 
+  function showFieldMsg(el,msg){
+    if(!el)return;
+    el.classList.toggle('is-invalid',!!msg);
+    if(msg)el.setAttribute('aria-invalid','true');
+    else el.removeAttribute('aria-invalid');
+    el.setCustomValidity(msg||'');
+    var wrap=el.closest('.jobform__cell, .jobform__field');
+    var box=wrap&&wrap.querySelector('.jobform__msg');
+    if(box){
+      box.textContent=msg||'';
+      box.classList.toggle('is-on',!!msg);
+    }
+  }
   function lettersOnly(value){
     return value.replace(/[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]+/g,'').replace(/ {2,}/g,' ');
   }
@@ -379,17 +442,39 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
     if(d.length<7)return '('+d.slice(0,3)+') '+d.slice(3);
     return '('+d.slice(0,3)+') '+d.slice(3,6)+'-'+d.slice(6);
   }
-  function validateName(el){
+  function validateName(el,requireFilled){
     var v=el.value.trim();
-    if(!v){el.setCustomValidity('');return}
-    if(!NAME_OK.test(v))el.setCustomValidity('Full name can only contain letters.');
-    else el.setCustomValidity('');
+    if(!v){
+      if(requireFilled){showFieldMsg(el,'Please enter your full name.');return false}
+      showFieldMsg(el,'');return true;
+    }
+    if(!NAME_OK.test(v)){showFieldMsg(el,'Full name can only contain letters.');return false}
+    showFieldMsg(el,'');return true;
   }
-  function validatePhone(el){
+  function validateEmail(el,requireFilled){
+    var v=el.value.trim();
+    if(!v){
+      if(requireFilled){showFieldMsg(el,'Please enter your email.');return false}
+      showFieldMsg(el,'');return true;
+    }
+    if(!EMAIL_OK.test(v)){showFieldMsg(el,'Enter an email like name@example.com');return false}
+    showFieldMsg(el,'');return true;
+  }
+  function validatePhone(el,requireFilled){
     var d=usDigits(el.value);
-    if(!d){el.setCustomValidity('');return}
-    if(!US_NANP.test(d))el.setCustomValidity('Enter a valid US phone number, e.g. (707) 647-0554.');
-    else el.setCustomValidity('');
+    if(!d){
+      if(requireFilled){showFieldMsg(el,'Please enter your phone number.');return false}
+      showFieldMsg(el,'');return true;
+    }
+    if(!US_NANP.test(d)){showFieldMsg(el,'Enter a US phone number, e.g. (707) 647-0554.');return false}
+    showFieldMsg(el,'');return true;
+  }
+  function validatePosition(el,requireFilled){
+    if(!el.value){
+      if(requireFilled){showFieldMsg(el,'Please choose a position.');return false}
+      showFieldMsg(el,'');return true;
+    }
+    showFieldMsg(el,'');return true;
   }
   function isPdf(file){
     var type=(file.type||'').toLowerCase();
@@ -429,24 +514,36 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
     return true;
   }
 
+  if(positionSelect){
+    positionSelect.addEventListener('change',function(){validatePosition(this,true)});
+  }
   if(nameInput){
     nameInput.addEventListener('input',function(){
       var cleaned=lettersOnly(this.value);
       if(this.value!==cleaned)this.value=cleaned;
-      validateName(this);
+      validateName(this,false);
     });
     nameInput.addEventListener('blur',function(){
       this.value=this.value.trim();
-      validateName(this);
+      validateName(this,true);
+    });
+  }
+  if(emailInput){
+    emailInput.addEventListener('input',function(){
+      validateEmail(this,false);
+    });
+    emailInput.addEventListener('blur',function(){
+      this.value=this.value.trim();
+      validateEmail(this,true);
     });
   }
   if(phoneInput){
     phoneInput.addEventListener('input',function(){
       this.value=formatUSPhone(usDigits(this.value));
-      validatePhone(this);
+      validatePhone(this,false);
     });
     phoneInput.addEventListener('blur',function(){
-      validatePhone(this);
+      validatePhone(this,true);
     });
   }
   if(jfFile)jfFile.addEventListener('change',function(){
@@ -458,9 +555,28 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
   });
   if(jf)jf.addEventListener('submit',function(e){
     e.preventDefault();
-    if(nameInput){nameInput.value=nameInput.value.trim();validateName(nameInput)}
-    if(phoneInput)validatePhone(phoneInput);
-    if(!jf.checkValidity()){jf.reportValidity();return}
+    var okFields=true;
+    var firstInvalid=null;
+    function check(el,fn){
+      if(!el)return;
+      if(!fn(el,true)){
+        okFields=false;
+        if(!firstInvalid)firstInvalid=el;
+      }
+    }
+    if(nameInput)nameInput.value=nameInput.value.trim();
+    if(emailInput)emailInput.value=emailInput.value.trim();
+    check(positionSelect,validatePosition);
+    check(nameInput,validateName);
+    check(emailInput,validateEmail);
+    check(phoneInput,validatePhone);
+    if(!okFields){
+      if(firstInvalid){
+        firstInvalid.focus();
+        firstInvalid.scrollIntoView({block:'center',behavior:'smooth'});
+      }
+      return;
+    }
     if(!validateResume())return;
     var hasComment=document.getElementById('jfComment').value.trim().length>0;
     var hasFile=jfFile&&jfFile.files.length>0;
@@ -475,7 +591,13 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
     if(phoneInput)data.set('Phone',usDigits(phoneInput.value));
     fetch(JOBFORM_ENDPOINT,{method:'POST',body:data,headers:{'Accept':'application/json'}})
       .then(function(r){if(!r.ok)throw 0;return r.json()})
-      .then(function(){ok.style.display='block';jf.reset();resetFileUi()})
+      .then(function(){
+        ok.style.display='block';
+        jf.reset();
+        resetFileUi();
+        jf.querySelectorAll('.is-invalid').forEach(function(el){el.classList.remove('is-invalid');el.removeAttribute('aria-invalid');el.setCustomValidity('')});
+        jf.querySelectorAll('.jobform__msg').forEach(function(el){el.textContent='';el.classList.remove('is-on')});
+      })
       .catch(function(){if(jfErr){jfErr.innerHTML=jfErrDefault;jfErr.style.display='block'}})
       .finally(function(){btn.disabled=false;btn.querySelector('span').textContent='Submit application'});
   });
