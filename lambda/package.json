@@ -1,0 +1,10 @@
+{
+  "name": "taco-jalisco-notification-lambdas",
+  "private": true,
+  "description": "Lambda proxies: form submissions -> boons-notification-api (email + SMS)",
+  "dependencies": {
+    "lambda-multipart-parser": "^1.0.1",
+    "@aws-sdk/client-s3": "^3.600.0",
+    "@aws-sdk/s3-request-presigner": "^3.600.0"
+  }
+}
