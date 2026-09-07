@@ -27,6 +27,7 @@ class Handler(SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     port = 8765
+    ThreadingHTTPServer.allow_reuse_address = True
     httpd = ThreadingHTTPServer(("127.0.0.1", port), Handler)
     print("Tacos Jalisco — open these (no .html in the URL):", flush=True)
     print(f"  http://127.0.0.1:{port}/", flush=True)

@@ -40,7 +40,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:cal
 }
 body{
   font-family:var(--body);font-weight:500;background:var(--cream);color:var(--ink);
-  line-height:1.6;font-size:17px;overflow-x:hidden;
+  line-height:1.6;font-size:17px;overflow-x:clip;
 }
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -166,6 +166,14 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
 }
 .jobform textarea{resize:vertical}
 .jobform input:focus,.jobform select:focus,.jobform textarea:focus{outline:none;border-color:var(--ember)}
+.jobform__cell{display:grid;gap:6px;min-width:0}
+.jobform input.is-invalid,.jobform select.is-invalid,.jobform textarea.is-invalid{
+  border-color:var(--ember);background:#fdf6f5;
+}
+.jobform__msg{
+  display:none;color:#8c2517;font-size:13.5px;font-weight:700;line-height:1.4;
+}
+.jobform__msg.is-on{display:block}
 .jobform__ok{
   display:none;background:#e6f4e6;border:2px solid #4f7a4a;color:#2c4a28;
   border-radius:12px;padding:16px;font-weight:700;text-align:center;
@@ -254,12 +262,12 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
 .foot__links a{opacity:.8}
 .foot__links a:hover{opacity:1;color:var(--gold)}
 .powered-by{display:inline-flex;align-items:center;gap:8px;opacity:.7}
-@media (min-width:900px){.foot{padding-bottom:56px}}
+@media (min-width:900px){.foot{padding-bottom:calc(120px + env(safe-area-inset-bottom))}}
 
 /* sticky order bar */
 .orderbar{
-  position:fixed;left:0;right:0;bottom:0;z-index:50;
-  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+  position:fixed;left:0;right:0;bottom:0;z-index:80;
+  display:none;grid-template-columns:1fr 1fr;gap:8px;
   padding:12px 12px calc(12px + env(safe-area-inset-bottom));
   background:rgba(29,20,16,.94);backdrop-filter:blur(14px);
   border-top:1px solid var(--line-inv);
@@ -268,9 +276,12 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
   padding:0 10px;font-size:14px;letter-spacing:.06em;white-space:nowrap;
 }
 .orderbar .btn--ghost{color:var(--cream)}
-@media (min-width:900px){
-  .orderbar{left:auto;right:32px;bottom:24px;border:0;background:none;backdrop-filter:none;padding:0;grid-template-columns:auto}
-  .orderbar .btn--ghost{display:none}
+@media (max-width:1024px){
+  .orderbar{display:grid !important}
+}
+@media (min-width:1025px){
+  .orderbar{display:none !important}
+  .foot{padding-bottom:56px}
 }
 
 </style>
@@ -329,27 +340,40 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
     <form class="jobform" id="eventform" novalidate>
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
-      <input type="text" name="Full Name" placeholder="Full name *" autocomplete="name" autocapitalize="words" spellcheck="false" maxlength="80" inputmode="text" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+( [A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*" title="Letters only — no numbers or special characters." required>
+      <div class="jobform__cell">
+        <input type="text" name="Full Name" placeholder="Full name *" autocomplete="name" autocapitalize="words" spellcheck="false" maxlength="80" inputmode="text" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+( [A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*" title="Letters only — no numbers or special characters." required>
+        <span class="jobform__msg" role="alert"></span>
+      </div>
       <div class="jobform__grid">
-        <input type="email" name="Email Address" placeholder="Email address *" autocomplete="email" required>
-        <input type="tel" name="Phone Number" placeholder="Phone number *  (555) 123-4567" autocomplete="tel" inputmode="numeric" maxlength="14" pattern="\(\d{3}\) \d{3}-\d{4}" title="Enter a US phone number, e.g. (707) 647-0554." required>
+        <div class="jobform__cell">
+          <input type="email" name="Email Address" placeholder="Email address *" autocomplete="email" inputmode="email" maxlength="80" spellcheck="false" title="Enter an email like name@example.com" required>
+          <span class="jobform__msg" role="alert"></span>
+        </div>
+        <div class="jobform__cell">
+          <input type="tel" name="Phone Number" placeholder="Phone number *  (555) 123-4567" autocomplete="tel" inputmode="numeric" maxlength="14" pattern="\(\d{3}\) \d{3}-\d{4}" title="Enter a US phone number, e.g. (707) 647-0554." required>
+          <span class="jobform__msg" role="alert"></span>
+        </div>
       </div>
 
-      <select name="Event Type" aria-label="Event type" required>
-        <option value="" disabled selected>Event type *</option>
-        <option>Wedding</option>
-        <option>Birthday</option>
-        <option>Corporate</option>
-        <option>Graduation</option>
-        <option>Holiday Party</option>
-        <option>Private Party</option>
-        <option>Other</option>
-      </select>
+      <div class="jobform__cell">
+        <select name="Event Type" aria-label="Event type" required>
+          <option value="" disabled selected>Event type *</option>
+          <option>Wedding</option>
+          <option>Birthday</option>
+          <option>Corporate</option>
+          <option>Graduation</option>
+          <option>Holiday Party</option>
+          <option>Private Party</option>
+          <option>Other</option>
+        </select>
+        <span class="jobform__msg" role="alert"></span>
+      </div>
 
       <div class="jobform__grid">
         <label class="jobform__field">
           <span>Event date *</span>
           <input type="date" name="Event Date" aria-label="Event date" required>
+          <span class="jobform__msg" role="alert"></span>
         </label>
         <label class="jobform__field">
           <span>Preferred start time</span>
@@ -357,7 +381,10 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
         </label>
       </div>
 
-      <input type="text" name="Number of Guests" placeholder="Number of guests *" inputmode="numeric" maxlength="3" pattern="[1-9][0-9]{0,2}" autocomplete="off" required>
+      <div class="jobform__cell">
+        <input type="text" name="Number of Guests" placeholder="Number of guests *" inputmode="numeric" maxlength="3" pattern="[1-9][0-9]{0,2}" autocomplete="off" required>
+        <span class="jobform__msg" role="alert"></span>
+      </div>
       <textarea name="Message" rows="4" placeholder="Message"></textarea>
 
       <p class="jobform__req">* Required fields</p>
@@ -430,11 +457,27 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
   var ef=document.getElementById('eventform');
   var dateInput=ef&&ef.querySelector('input[name="Event Date"]');
   var nameInput=ef&&ef.querySelector('input[name="Full Name"]');
+  var emailInput=ef&&ef.querySelector('input[name="Email Address"]');
   var phoneInput=ef&&ef.querySelector('input[name="Phone Number"]');
+  var typeSelect=ef&&ef.querySelector('select[name="Event Type"]');
   var guestsInput=ef&&ef.querySelector('input[name="Number of Guests"]');
   var NAME_OK=/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(?: [A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/;
+  var EMAIL_OK=/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
   var US_NANP=/^[2-9]\d{2}[2-9]\d{6}$/;
 
+  function showFieldMsg(el,msg){
+    if(!el)return;
+    el.classList.toggle('is-invalid',!!msg);
+    if(msg)el.setAttribute('aria-invalid','true');
+    else el.removeAttribute('aria-invalid');
+    el.setCustomValidity(msg||'');
+    var wrap=el.closest('.jobform__cell, .jobform__field');
+    var box=wrap&&wrap.querySelector('.jobform__msg');
+    if(box){
+      box.textContent=msg||'';
+      box.classList.toggle('is-on',!!msg);
+    }
+  }
   function lettersOnly(value){
     return value.replace(/[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]+/g,'').replace(/ {2,}/g,' ');
   }
@@ -449,27 +492,67 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
     if(d.length<7)return '('+d.slice(0,3)+') '+d.slice(3);
     return '('+d.slice(0,3)+') '+d.slice(3,6)+'-'+d.slice(6);
   }
-  function validateName(el){
+  function validateName(el,requireFilled){
     var v=el.value.trim();
-    if(!v){el.setCustomValidity('');return}
-    if(!NAME_OK.test(v))el.setCustomValidity('Full name can only contain letters.');
-    else el.setCustomValidity('');
+    if(!v){
+      if(requireFilled){showFieldMsg(el,'Please enter your full name.');return false}
+      showFieldMsg(el,'');return true;
+    }
+    if(!NAME_OK.test(v)){showFieldMsg(el,'Full name can only contain letters.');return false}
+    showFieldMsg(el,'');return true;
   }
-  function validatePhone(el){
+  function validateEmail(el,requireFilled){
+    var v=el.value.trim();
+    if(!v){
+      if(requireFilled){showFieldMsg(el,'Please enter your email.');return false}
+      showFieldMsg(el,'');return true;
+    }
+    if(!EMAIL_OK.test(v)){showFieldMsg(el,'Enter an email like name@example.com');return false}
+    showFieldMsg(el,'');return true;
+  }
+  function validatePhone(el,requireFilled){
     var d=usDigits(el.value);
-    if(!d){el.setCustomValidity('');return}
-    if(!US_NANP.test(d))el.setCustomValidity('Enter a valid US phone number, e.g. (707) 647-0554.');
-    else el.setCustomValidity('');
+    if(!d){
+      if(requireFilled){showFieldMsg(el,'Please enter your phone number.');return false}
+      showFieldMsg(el,'');return true;
+    }
+    if(!US_NANP.test(d)){showFieldMsg(el,'Enter a US phone number, e.g. (707) 647-0554.');return false}
+    showFieldMsg(el,'');return true;
   }
   function guestsDigits(value){
     return value.replace(/\D/g,'').slice(0,3);
   }
-  function validateGuests(el){
+  function validateGuests(el,requireFilled){
     var d=guestsDigits(el.value);
-    if(!d){el.setCustomValidity('');return}
+    if(!d){
+      if(requireFilled){showFieldMsg(el,'Please enter the number of guests.');return false}
+      showFieldMsg(el,'');return true;
+    }
     var n=parseInt(d,10);
-    if(!n||n<1||n>999)el.setCustomValidity('Number of guests can be at most 3 digits (1–999).');
-    else el.setCustomValidity('');
+    if(!n||n<1||n>999){showFieldMsg(el,'Number of guests can be at most 3 digits (1–999).');return false}
+    showFieldMsg(el,'');return true;
+  }
+  function toISODate(dt){
+    var y=dt.getFullYear();
+    var m=String(dt.getMonth()+1).padStart(2,'0');
+    var d=String(dt.getDate()).padStart(2,'0');
+    return y+'-'+m+'-'+d;
+  }
+  function validateDate(el,requireFilled){
+    if(!el.value){
+      if(requireFilled){showFieldMsg(el,'Please pick an event date.');return false}
+      showFieldMsg(el,'');return true;
+    }
+    if(el.min&&el.value<el.min){showFieldMsg(el,'Please pick a date from today onward.');return false}
+    if(el.max&&el.value>el.max){showFieldMsg(el,'Please pick a date within the next 6 months.');return false}
+    showFieldMsg(el,'');return true;
+  }
+  function validateType(el,requireFilled){
+    if(!el.value){
+      if(requireFilled){showFieldMsg(el,'Please choose an event type.');return false}
+      showFieldMsg(el,'');return true;
+    }
+    showFieldMsg(el,'');return true;
   }
 
   if(nameInput){
@@ -480,48 +563,82 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
     });
     nameInput.addEventListener('blur',function(){
       this.value=this.value.trim();
-      validateName(this);
+      validateName(this,true);
+    });
+  }
+  if(emailInput){
+    emailInput.addEventListener('input',function(){
+      validateEmail(this,false);
+    });
+    emailInput.addEventListener('blur',function(){
+      this.value=this.value.trim();
+      validateEmail(this,true);
     });
   }
   if(phoneInput){
     phoneInput.addEventListener('input',function(){
       this.value=formatUSPhone(usDigits(this.value));
-      validatePhone(this);
+      validatePhone(this,false);
     });
     phoneInput.addEventListener('blur',function(){
-      validatePhone(this);
+      validatePhone(this,true);
     });
+  }
+  if(typeSelect){
+    typeSelect.addEventListener('change',function(){validateType(this,true)});
   }
   if(guestsInput){
     guestsInput.addEventListener('input',function(){
       var cleaned=guestsDigits(this.value);
       if(this.value!==cleaned)this.value=cleaned;
-      validateGuests(this);
+      validateGuests(this,false);
     });
     guestsInput.addEventListener('blur',function(){
       var n=parseInt(guestsDigits(this.value),10);
       if(n)this.value=String(n);
-      validateGuests(this);
+      validateGuests(this,true);
     });
   }
 
   if(dateInput){
     var today=new Date();
-    var y=today.getFullYear();
-    var m=String(today.getMonth()+1).padStart(2,'0');
-    var d=String(today.getDate()).padStart(2,'0');
-    dateInput.min=y+'-'+m+'-'+d;
+    today.setHours(0,0,0,0);
+    var latest=new Date(today.getFullYear(),today.getMonth()+6,today.getDate());
+    dateInput.min=toISODate(today);
+    dateInput.max=toISODate(latest);
+    dateInput.addEventListener('input',function(){validateDate(this,false)});
+    dateInput.addEventListener('change',function(){validateDate(this,true)});
   }
   if(ef)ef.addEventListener('submit',function(e){
     e.preventDefault();
-    if(nameInput){nameInput.value=nameInput.value.trim();validateName(nameInput)}
-    if(phoneInput)validatePhone(phoneInput);
+    var okFields=true;
+    var firstInvalid=null;
+    function check(el,fn){
+      if(!el)return;
+      if(!fn(el,true)){
+        okFields=false;
+        if(!firstInvalid)firstInvalid=el;
+      }
+    }
+    if(nameInput)nameInput.value=nameInput.value.trim();
+    if(emailInput)emailInput.value=emailInput.value.trim();
     if(guestsInput){
       var n=parseInt(guestsDigits(guestsInput.value),10);
       if(n)guestsInput.value=String(n);
-      validateGuests(guestsInput);
     }
-    if(!ef.checkValidity()){ef.reportValidity();return}
+    check(nameInput,validateName);
+    check(emailInput,validateEmail);
+    check(phoneInput,validatePhone);
+    check(typeSelect,validateType);
+    check(dateInput,validateDate);
+    check(guestsInput,validateGuests);
+    if(!okFields){
+      if(firstInvalid){
+        firstInvalid.focus();
+        firstInvalid.scrollIntoView({block:'center',behavior:'smooth'});
+      }
+      return;
+    }
     var btn=document.getElementById('efBtn'),ok=document.getElementById('efOk'),err=document.getElementById('efErr');
     ok.style.display='none';err.style.display='none';
     btn.disabled=true;btn.querySelector('span').textContent='Sending…';
@@ -529,7 +646,12 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
     if(phoneInput)data.set('Phone Number',usDigits(phoneInput.value));
     fetch(EVENTFORM_ENDPOINT,{method:'POST',body:data,headers:{'Accept':'application/json'}})
       .then(function(r){if(!r.ok)throw 0;return r.json()})
-      .then(function(){ok.style.display='block';ef.reset()})
+      .then(function(){
+        ok.style.display='block';
+        ef.reset();
+        ef.querySelectorAll('.is-invalid').forEach(function(el){el.classList.remove('is-invalid');el.removeAttribute('aria-invalid');el.setCustomValidity('')});
+        ef.querySelectorAll('.jobform__msg').forEach(function(el){el.textContent='';el.classList.remove('is-on')});
+      })
       .catch(function(){err.style.display='block'})
       .finally(function(){btn.disabled=false;btn.querySelector('span').textContent='Submit'});
   });

@@ -91,7 +91,7 @@ body{
   font-family:var(--body);font-weight:500;
   background:var(--cream);color:var(--ink);
   line-height:1.6;font-size:17px;
-  overflow-x:hidden;
+  overflow-x:clip;
 }
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -502,23 +502,30 @@ body.no-scroll{overflow:hidden}
 .powered-by{display:inline-flex;align-items:center;gap:8px}
 .powered-by img{height:18px;width:auto;display:inline-block}
 @media (min-width:900px){
-  .foot{padding-bottom:64px}
+  .foot{padding-bottom:calc(120px + env(safe-area-inset-bottom))}
   .foot__top{grid-template-columns:1.4fr 1fr 1fr 1fr}
   .foot__bot{flex-direction:row;justify-content:space-between;align-items:center}
 }
 
-/* ══════════ STICKY ORDER BAR (mobile) ══════════ */
+/* ══════════ STICKY ORDER BAR ══════════ */
 .orderbar{
-  position:fixed;left:0;right:0;bottom:0;z-index:50;
-  display:grid;grid-template-columns:1fr 1.7fr;gap:10px;
-  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  position:fixed;left:0;right:0;bottom:0;z-index:80;
+  display:none;grid-template-columns:1fr 1fr;gap:8px;
+  padding:12px 12px calc(12px + env(safe-area-inset-bottom));
   background:rgba(29,20,16,.94);backdrop-filter:blur(14px);
   border-top:1px solid var(--line-inv);
-  transform:translateY(110%);transition:transform .3s ease;
 }
-.orderbar.show{transform:none}
+.orderbar .btn{
+  padding:0 10px;font-size:14px;letter-spacing:.06em;white-space:nowrap;
+}
 .orderbar .btn--ghost{color:var(--cream)}
-@media (min-width:900px){.orderbar{display:none}}
+@media (max-width:1024px){
+  .orderbar{display:grid !important}
+}
+@media (min-width:1025px){
+  .orderbar{display:none !important}
+  .foot{padding-bottom:64px}
+}
 
 /* to top */
 .totop{
@@ -530,7 +537,7 @@ body.no-scroll{overflow:hidden}
 }
 .totop.show{opacity:1;visibility:visible}
 .totop svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-@media (min-width:900px){.totop{bottom:32px}}
+@media (min-width:1025px){.totop{bottom:32px}}
 
 /* ══════════ LIGHTBOX ══════════ */
 .lightbox{
@@ -1038,8 +1045,8 @@ body.no-scroll{overflow:hidden}
 
 <!-- sticky mobile order bar -->
 <div class="orderbar" id="orderbar">
-  <a class="btn btn--ghost" href="tel:+17076470554"><span>Call</span></a>
   <a class="btn btn--solid" href="https://order.boons.io/site/tacos-jalisco/244/y" target="_blank" rel="noopener noreferrer"><span>Order online</span></a>
+  <a class="btn btn--ghost" href="https://order.boons.io/site/catering/tacos-jalisco/244/y" target="_blank" rel="noopener noreferrer"><span>Order catering</span></a>
 </div>
 
 <button class="totop" id="totop" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
@@ -1075,10 +1082,8 @@ body.no-scroll{overflow:hidden}
     var y=window.scrollY;
     nav.classList.toggle('is-solid',y>40);
     if(orderbar){
-      var show=y>window.innerHeight*.55;
-      orderbar.classList.toggle('show',show);
       var acc=document.getElementById('acc');
-      if(acc) acc.classList.toggle('lift',show);
+      if(acc) acc.classList.add('lift');
     }
     if(totop) totop.classList.toggle('show',y>window.innerHeight*1.4);
   }
