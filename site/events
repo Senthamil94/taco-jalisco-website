@@ -329,7 +329,7 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
     <form class="jobform" id="eventform" novalidate>
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
-      <input type="text" name="Full Name" placeholder="Full name *" autocomplete="name" autocapitalize="words" spellcheck="false" maxlength="50" inputmode="text" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+( [A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*" title="Letters only — no numbers or special characters. Maximum 50 characters." required>
+      <input type="text" name="Full Name" placeholder="Full name *" autocomplete="name" autocapitalize="words" spellcheck="false" maxlength="80" inputmode="text" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+( [A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*" title="Letters only — no numbers or special characters. Maximum 80 characters." required>
       <div class="jobform__grid">
         <input type="email" name="Email Address" placeholder="Email address *" autocomplete="email" required>
         <input type="tel" name="Phone Number" placeholder="Phone number *  (555) 123-4567" autocomplete="tel" inputmode="numeric" maxlength="14" pattern="\(\d{3}\) \d{3}-\d{4}" title="Enter a US phone number, e.g. (707) 647-0554." required>
@@ -433,7 +433,7 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
   var phoneInput=ef&&ef.querySelector('input[name="Phone Number"]');
   var guestsInput=ef&&ef.querySelector('input[name="Number of Guests"]');
   var messageInput=ef&&ef.querySelector('textarea[name="Message"]');
-  var MAX_NAME=50;
+  var MAX_NAME=80;
   var MAX_MESSAGE=2000;
   var NAME_OK=/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(?: [A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/;
   var US_NANP=/^[2-9]\d{2}[2-9]\d{6}$/;
@@ -455,7 +455,7 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
   function validateName(el){
     var v=el.value.trim();
     if(!v){el.setCustomValidity('');return}
-    if(v.length>MAX_NAME)el.setCustomValidity('Full name can be at most 50 characters.');
+    if(v.length>MAX_NAME)el.setCustomValidity('Full name can be at most 80 characters.');
     else if(!NAME_OK.test(v))el.setCustomValidity('Full name can only contain letters.');
     else el.setCustomValidity('');
   }

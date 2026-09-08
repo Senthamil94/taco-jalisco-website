@@ -341,7 +341,7 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
       <div class="jobform__cell">
-        <input type="text" name="Full Name" placeholder="Full name *" autocomplete="name" autocapitalize="words" spellcheck="false" maxlength="50" inputmode="text" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+( [A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*" title="Letters only — no numbers or special characters. Maximum 50 characters." required>
+        <input type="text" name="Full Name" placeholder="Full name *" autocomplete="name" autocapitalize="words" spellcheck="false" maxlength="80" inputmode="text" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+( [A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*" title="Letters only — no numbers or special characters. Maximum 80 characters." required>
         <span class="jobform__msg" role="alert"></span>
       </div>
       <div class="jobform__grid">
@@ -465,7 +465,7 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
   var typeSelect=ef&&ef.querySelector('select[name="Event Type"]');
   var guestsInput=ef&&ef.querySelector('input[name="Number of Guests"]');
   var messageInput=ef&&ef.querySelector('textarea[name="Message"]');
-  var MAX_NAME=50;
+  var MAX_NAME=80;
   var MAX_MESSAGE=2000;
   var NAME_OK=/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(?: [A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/;
   var EMAIL_OK=/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
@@ -504,7 +504,7 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
       if(requireFilled){showFieldMsg(el,'Please enter your full name.');return false}
       showFieldMsg(el,'');return true;
     }
-    if(v.length>MAX_NAME){showFieldMsg(el,'Full name can be at most 50 characters.');return false}
+    if(v.length>MAX_NAME){showFieldMsg(el,'Full name can be at most 80 characters.');return false}
     if(!NAME_OK.test(v)){showFieldMsg(el,'Full name can only contain letters.');return false}
     showFieldMsg(el,'');return true;
   }

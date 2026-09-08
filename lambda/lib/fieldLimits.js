@@ -1,6 +1,6 @@
 'use strict';
 
-const MAX_NAME = 50;
+const MAX_NAME = 80;
 const MAX_MESSAGE = 2000;
 
 function overCharLimit(value, max) {
