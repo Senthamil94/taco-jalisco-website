@@ -9,6 +9,7 @@ const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
 const { notifyOwner, response } = require('../lib/notify');
 const { renderOwnerEmail, SITE_URL } = require('../lib/emailTemplate');
 const { originDenied } = require('../lib/allowedOrigin');
+const { MAX_NAME, MAX_MESSAGE, overCharLimit } = require('../lib/fieldLimits');
 
 const REQUIRED_FIELDS = ['Position', 'Name', 'Email', 'Phone'];
 const RESUME_URL_TTL_SECONDS = 60 * 60 * 24 * 7; // 7 days — long enough for the owner to open it, private bucket regardless
@@ -46,6 +47,13 @@ exports.handler = async (event) => {
   const missing = REQUIRED_FIELDS.filter((name) => !parsed[name]);
   if (missing.length) {
     return response(400, { ok: false, error: 'missing_fields', fields: missing });
+  }
+
+  const tooLong = [];
+  if (overCharLimit(parsed.Name, MAX_NAME)) tooLong.push('Name');
+  if (overCharLimit(parsed.Comment, MAX_MESSAGE)) tooLong.push('Comment');
+  if (tooLong.length) {
+    return response(400, { ok: false, error: 'field_too_long', fields: tooLong });
   }
 
   const resumeFile = (parsed.files || []).find((f) => f.fieldname === 'Resume' && f.content?.length);

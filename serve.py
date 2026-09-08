@@ -4,6 +4,8 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
+from sync_pretty_pages import sync
+
 ROOT = Path(__file__).resolve().parent / "site"
 PRETTY = {
     "/index": "/index.html",
@@ -26,6 +28,7 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
+    sync()
     port = 8765
     ThreadingHTTPServer.allow_reuse_address = True
     httpd = ThreadingHTTPServer(("127.0.0.1", port), Handler)
