@@ -282,13 +282,13 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
           <option>Other / Any role</option>
         </select>
 
-        <input type="text" name="Name" placeholder="Full name *" required>
+        <input type="text" name="Name" placeholder="Full name *" maxlength="50" required>
         <div class="jobform__grid">
           <input type="email" name="Email" placeholder="Email *" required>
           <input type="tel" name="Phone" placeholder="Phone number *" required>
         </div>
 
-        <textarea name="Comment" id="jfComment" rows="3" placeholder="A few sentences about yourself"></textarea>
+        <textarea name="Comment" id="jfComment" rows="3" placeholder="A few sentences about yourself" maxlength="2000"></textarea>
 
         <label class="jobform__file" for="jfFile">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg>

@@ -329,7 +329,7 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
     <form class="jobform" id="eventform" novalidate>
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
-      <input type="text" name="Full Name" placeholder="Full name *" autocomplete="name" required>
+      <input type="text" name="Full Name" placeholder="Full name *" autocomplete="name" maxlength="50" required>
       <div class="jobform__grid">
         <input type="email" name="Email Address" placeholder="Email address *" autocomplete="email" required>
         <input type="tel" name="Phone Number" placeholder="Phone number *" autocomplete="tel" required>
@@ -358,7 +358,7 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
       </div>
 
       <input type="number" name="Number of Guests" placeholder="Number of guests *" min="1" max="9999" inputmode="numeric" required>
-      <textarea name="Message" rows="4" placeholder="Message"></textarea>
+      <textarea name="Message" rows="4" placeholder="Message" maxlength="2000"></textarea>
 
       <p class="jobform__req">* Required fields</p>
 

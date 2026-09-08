@@ -7,6 +7,7 @@ const multipart = require('lambda-multipart-parser');
 const { notifyOwner, response } = require('../lib/notify');
 const { renderOwnerEmail, SITE_URL } = require('../lib/emailTemplate');
 const { originDenied } = require('../lib/allowedOrigin');
+const { MAX_NAME, MAX_MESSAGE, overCharLimit } = require('../lib/fieldLimits');
 
 const REQUIRED_FIELDS = ['Full Name', 'Email Address', 'Phone Number', 'Event Type', 'Event Date', 'Number of Guests'];
 
@@ -28,6 +29,13 @@ exports.handler = async (event) => {
   const missing = REQUIRED_FIELDS.filter((name) => !fields[name]);
   if (missing.length) {
     return response(400, { ok: false, error: 'missing_fields', fields: missing });
+  }
+
+  const tooLong = [];
+  if (overCharLimit(fields['Full Name'], MAX_NAME)) tooLong.push('Full Name');
+  if (overCharLimit(fields['Message'], MAX_MESSAGE)) tooLong.push('Message');
+  if (tooLong.length) {
+    return response(400, { ok: false, error: 'field_too_long', fields: tooLong });
   }
 
   const message = renderOwnerEmail({

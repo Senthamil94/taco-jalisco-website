@@ -31,7 +31,7 @@ doc/      ← design doc
    ```
    aws s3 sync site/ s3://<your-bucket-name>/ --delete
    ```
-   (Or upload/replace the contents of the existing bucket through the S3 console — the whole `site/` folder maps 1:1 to the bucket root.) CloudFront/Route53 need no changes — same domain, same distribution, only the file contents change.
+   (Or upload/replace the contents of the existing Lightsail bucket.) Pretty URLs such as `/events` do **not** work from `events.html` alone — Lightsail CDN cannot rewrite paths. Copy `events.html` → object key `events` (and the same for `menu` and `hiring`), set Content-Type to `text/html`, keep the objects public, then invalidate the Lightsail CDN cache. `python sync_pretty_pages.py` writes those extensionless files into `site/` before you upload.
 7. Submit both forms on the live site and confirm the email/SMS still land at the **test** values.
 
 **Stage 3 — go live with the real contact info**
